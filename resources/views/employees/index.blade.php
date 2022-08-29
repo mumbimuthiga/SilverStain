@@ -93,6 +93,9 @@
     $(document).ready( function () {
     $('#myTab').DataTable();
 } );
+$('.dataTables_paginate .paginate_button').click(function() {
+  $.fn.dataTable.tables( {visible: true, api: true} ).columns.adjust();
+});
 
 
 </script>
