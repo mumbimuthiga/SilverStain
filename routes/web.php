@@ -17,4 +17,4 @@ use App\Http\Controllers\EmployeeCRUDController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('employees', EmployeeCRUDController::class);
+Route::resource('employees', 'App\Http\Controllers\EmployeeCRUDController');
