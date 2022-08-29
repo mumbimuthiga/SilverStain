@@ -11,16 +11,18 @@
 <div class="container mt-2">
  
     <div class="row">
-        <div class="col-lg-12 margin-tb">
+        <div class="col-lg-10 margin-tb">
             <div class="pull-left">
                 <h2>Edit Employee</h2>
             </div>
+    </div>
+    <div class="col-lg-2 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('employees.index') }}" enctype="multipart/form-data"> Back</a>
+                <a class="btn btn-success" href="{{ route('employees.index') }}" enctype="multipart/form-data"> Back</a>
             </div>
         </div>
     </div>
-    
+    <br>
   @if(session('status'))
     <div class="alert alert-success mb-1 mt-1">
         {{ session('status') }}
@@ -32,79 +34,84 @@
         @method('PUT')
     
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <strong>Title:</strong>
+                    <strong>Title</strong>
                     <input type="text" name="title" value="{{ $employee->title }}" class="form-control" placeholder="Employee Title">
                     @error('title')
                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <strong>First Name:</strong>
+                    <strong>First Name</strong>
                     <input type="text" name="firstname" value="{{ $employee->firstname }}" class="form-control" placeholder="First Name">
                     @error('firstname')
                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <strong>Last Name:</strong>
+                    <strong>Last Name</strong>
                     <input type="text" name="lastname" value="{{ $employee->lastname }}" class="form-control" placeholder="Last Name">
                     @error('lastname')
                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <strong>Gender:</strong>
-                    <input type="text" name="gender" value="{{ $employee->gender }}" class="form-control" placeholder="Gender">
+                    <strong>Gender</strong>
+                    <select class="form-control" name="gender">
+                    <option value="{{ $employee->gender }}">{{ $employee->gender }}</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                    
                     @error('gender')
                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <strong>Email:</strong>
+                    <strong>Email</strong>
                     <input type="email" name="email" value="{{ $employee->email }}" class="form-control" placeholder="Email">
                     @error('email')
                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <strong>Phone Number:</strong>
+                    <strong>Phone Number</strong>
                     <input type="text" name="phone_number" value="{{ $employee->phone_number }}" class="form-control" placeholder="Phone Number">
                     @error('phone_number')
                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <strong>Designation:</strong>
+                    <strong>Designation</strong>
                     <input type="text" name="designation" value="{{ $employee->designation }}" class="form-control" placeholder="Designation">
                     @error('designation')
                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <strong>Salary:</strong>
+                    <strong>Salary</strong>
                     <input type="text" name="salary" value="{{ $employee->salary }}" class="form-control" placeholder="Salary">
                     @error('salary')
                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Date of Birth:</strong>
                     <input type="date" name="date_of_birth" value="{{ $employee->date_of_birth }}" class="form-control" placeholder="Date of Birth">
@@ -113,7 +120,8 @@
                     @enderror
                 </div>
             </div>
-          
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
         
               <button type="submit" class="btn btn-primary ml-3">Submit</button>
            

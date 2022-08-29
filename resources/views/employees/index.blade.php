@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Silverstain Limited</title>
- 
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+   
+    
+  
 </head>
 <body>
  
@@ -27,7 +30,8 @@
         </div>
     @endif
     
-    <table class="table table-bordered">
+    <table class="table table-bordered data-table" id="myTab">
+        <thead>
         <tr>
             <th>S.No</th>
             <th>Title</th>
@@ -41,7 +45,9 @@
             <th>Date of birth</th>
             <th width="280px">Action</th>
         </tr>
+        </thead>
         @foreach ($employees as $employee)
+        <tbody>
         <tr>
             <td>{{ $employee->id }}</td>
             <td>{{ $employee->title }}</td>
@@ -58,6 +64,7 @@
                 <form action="{{ route('employees.destroy',$employee->id) }}" method="Post">
      
                     <a class="btn btn-primary" href="{{ route('employees.edit',$employee->id) }}">Edit</a>
+                    
     
                     @csrf
                     @method('DELETE')
@@ -67,9 +74,23 @@
             </td>
         </tr>
         @endforeach
+</tbody>
     </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>  
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+   
+   
    
     {!! $employees->links() !!}
  
 </body>
 </html>
+<script>
+    $(document).ready( function () {
+    $('#myTab').DataTable();
+} );
+
+
+</script>
+
