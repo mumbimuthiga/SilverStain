@@ -73,7 +73,7 @@ class EmployeeCRUDController extends Controller
     } 
 
     //Edit Employee 
-    public function edit(Employee $employee)
+    public function edit(Employees $employee)
     {
         return view('employees.edit',compact('employee'));
     }
@@ -95,7 +95,7 @@ class EmployeeCRUDController extends Controller
             'date_of_birth' => 'required',
         ]);
          
-        $employee = Employee::find($id);
+        $employee = Employees::find($id);
  
         $employee->title = $request->title;
         $employee->firstname = $request->firstname;
@@ -116,7 +116,7 @@ class EmployeeCRUDController extends Controller
 
     //Delete Employee
 
-    public function destroy(Employee $employee)
+    public function destroy(Employees $employee)
     {
         $employee->delete();
      
