@@ -73,19 +73,22 @@
                 </form>
             </td>
         </tr>
+        
         @endforeach
 </tbody>
     </table>
+    {!! $employees->links() !!}
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>  
     <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
    
    
    
-    {!! $employees->links() !!}
+    
  
 </body>
 </html>
+
 <script>
     $(document).ready( function () {
     $('#myTab').DataTable();
